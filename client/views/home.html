@@ -1,0 +1,58 @@
+<template name="home">
+  <section id="splash">
+    {{> menu}}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 activity-feed">
+          <h1>Activity Feed</h1>
+          <div class="row feed">
+            {{#each goals}}
+            <h4>Goal: {{ title }} : Duration: {{ duration }} minutes  Date: {{ start }}</h4>
+            {{/each}}
+          </div>
+        </div>
+        <div class="col-md-4 col-md-offset-2  register-form">
+          {{> register }}
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<template name="register">
+  <h1 class="text-center">Join Us</h1>
+  <form>
+    <div class="row">
+      <div class="col-md-6">
+          <label for="">First Name</label>
+          <input name="registerName" type="text" class="form-control" id="registerName" placeholder="First">
+
+      </div>
+      <div class="col-md-6">
+          <label for="">Last Name</label>
+          <input name="registerName" type="text" class="form-control" id="registerName" placeholder="Last">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="registerEmail">Email</label>
+          <input name="registerEmail" type="email" class="form-control" id="registerEmail" placeholder="Email address">
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input name="registerPassword" type="password" class="form-control" id="registerPassword" placeholder="Password">
+        <!-- <input name="registerPasswordConfirmation" type="password" class="form-control" id="registerPasswordConfirmation" placeholder="Password Confirmation"> -->
+      </div>
+    </div>
+  </div>
+    <div class="text-right">
+      <button type="submit" class="btn btn-custom">Register</button>
+
+    </div>
+  </form>
+</template>

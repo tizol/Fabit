@@ -1,0 +1,54 @@
+<template name="milestone">
+  {{> menu }}
+  <section class="milestone">
+		<div class="container toppading">
+
+	        <div class="row">
+	          <div class="col-lg-12 text-center">
+	            <h2 class="section-heading">Add a Milestone</h2>
+	            <hr class="primary">
+	          </div>
+	        </div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<form id="milestone">
+						<div class="form-group">
+							<label>Name your Milestone</label>						
+							<input class = "form-control" type="text" name="text" placeholder="Name" value="React w/ Meteor!"/>
+						</div>
+					</form>
+				</div>					
+			</div>		
+			<div class="row">
+				<form id="resource">
+					<div class="form-group">
+						<label>Add resources click by click</label>							
+						<div class="col-xs-11">			
+							<input class="form-control" type="text" name="text" placeholder="Paste URL"/>
+						</div>
+						<div class="col-xs-1">	
+							<input class="form-control" type="submit" value="+">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="row">
+				<br>
+				<div class="col-lg-10 text-center" style="line-height:300%">
+					<div class="btn-group-vertical" role="group" aria-label="Resources">
+				      {{#each resources}}
+				        {{> resource}}
+				      {{/each}}
+				    </div>
+				</div>
+				<div class="col-log-2"></div>
+			</div>
+		</div>
+	</section>
+</template>
+
+<template name="resource">
+      <a target="_blank" href={{url}} style="color:black"><button type="button" class="btn btn-warning">{{meta_data.title}}</button></a>
+
+</template>

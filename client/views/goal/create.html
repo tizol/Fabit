@@ -1,0 +1,131 @@
+<template name="create">
+  {{> menu }}
+  <section class="creategoal">
+    <form>
+      <div class="container toppadding">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Create Your Goal</h2>
+            <hr class="primary">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="row">
+                <div class="col-xs-12">
+                  <label for="goal">Goal Title</label>
+                  <input type="text" name="title" class="form-control" placeholder="Master mereor js" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-10">
+                  <label>Days of the week?</label>
+                  <div>
+                    <label class="radio-inline">
+                      <input type="checkbox" name="mon" value="mon">
+                      <span class="daysweek">Monday</span>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="checkbox" name="tue" value="tue">
+                      <span class="daysweek">Tuesay</span>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="checkbox" name="wed" value="wed">
+                      <span class="daysweek">Wednesday</span>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="checkbox" name="thr" value="thr">
+                      <span class="daysweek">Thursday</span>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="checkbox" name="fri" value="fri">
+                      <span class="daysweek">Friday</span>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="checkbox" name="sat" value="sat">
+                      <span class="daysweek">Saturday</span>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="checkbox" name="sun" value="sun">
+                      <span class="daysweek">Sunday</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-xs-2">
+                  <label for="duration">Duration (m)</label>
+                  <div>
+                    <input type="text" name="duration" class="form-control" placeholder="30" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row ">
+                <div class="col-xs-6">
+                  <label for="start" class="control-label">Start Date</label>
+                  <div class="input-group datetimepicker">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    <input name="start" class="set-due-date form-control" type="text" />
+                  </div>
+                </div>
+
+                <div class="col-xs-6">
+                  <label for="end" class="control-label">End Date</label>
+                  <div class="input-group datetimepicker">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    <input name="end" class="set-due-date form-control" type="text" />
+                  </div>
+                </div>
+
+              </div> -->
+              <div class="row ">
+                <div class="col-xs-6">
+                  <label for="start" class="control-label">Start Date</label>
+                  <div class="input-group">
+                    <input name="start" class="set-due-date form-control" type="date" />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+
+                  </div>
+                </div>
+
+                <div class="col-xs-6">
+                  <label for="end" class="control-label">End Date</label>
+                  <div class="input-group">
+                    <input name="end" class="set-due-date form-control" type="date" />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <label>Description</label>
+                  <textarea name="des" class="form-control custom-control" rows="3" style="resize:none"></textarea>
+                  <!-- <button type="submit" class="btn btn-custom2 pull-right">Save</button> -->
+                </div>
+              </div>
+              <button type="submit" class="btn btn-custom2 pull-right">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </section>
+
+
+  <!-- <section>
+    <div class="container">
+      <div class="row">
+        {{#each goals}}
+        <h2> {{ title }} </h2>
+        {{/each}}
+      </div>
+    </div>
+  </section> -->
+
+</template>
