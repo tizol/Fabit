@@ -5,11 +5,13 @@
       <div class="row">
         <div class="col-md-6 activity-feed">
           <h1>Activity Feed</h1>
-          <div class="row feed">
+
             {{#each goals}}
+            <div class="row feed">
             <h4>Goal: {{ title }} : Duration: {{ duration }} minutes  Date: {{ start }}</h4>
+            </div>
             {{/each}}
-          </div>
+
         </div>
         <div class="col-md-4 col-md-offset-2  register-form">
           {{> register }}

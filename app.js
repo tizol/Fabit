@@ -3,6 +3,8 @@ Goal = new Mongo.Collection('goals');
 
 if (Meteor.isClient) {
 
+  // scheduler.init("scheduler_here", new Date());
+
   Template.register.events({
     'submit form': function(event) {
       event.preventDefault();
@@ -41,6 +43,6 @@ if (Meteor.isClient) {
     }
   });
 
-
+// redirect http://stackoverflow.com/questions/22900405/how-to-redirect-after-user-has-just-logged-in-or-just-logged-out
 
 }

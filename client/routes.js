@@ -1,4 +1,4 @@
-//make iron router aware of using this common template
+// make iron router aware of using this common template
 // Router.configure({
 //    layoutTemplate: 'layout'
 //  });
@@ -14,4 +14,9 @@ Router.route('/create', function () {
 
 Router.route('/milestone_test', function()
 	{ this.render('milestone');
+});
+
+
+Router.route('/schedule', function()
+	{ this.render('schedule');
 });

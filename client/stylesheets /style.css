@@ -88,10 +88,12 @@ input:active {
 .feed{
     border-radius: 90px;
     background: #fff;
+
     padding: 20px;
     /*width: 200px;
     height: 150px;*/
     color: #5a6673;
+    margin: 20px;
 }
 
 /* ************ */
@@ -148,4 +150,28 @@ label {
 
 input {
   border-radius: 0 !important;
+}
+
+.navbar-default .nav li a {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #2c3e50;
+}
+
+
+.navbar-default .navbar-brand {
+  color: #3a9bf0;
+  font-family: 'Lato', sans-serif;
+  font-size: 3rem;
+}
+
+
+.navbar-default {
+  background-color: #fff;
+}
+
+
+.navbar {
+    border-radius: 0px;
 }

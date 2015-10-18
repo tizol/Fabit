@@ -20,6 +20,18 @@ follow
 share
 github integration and commits
 
+Features and People working on it 
+
+1. GitHub login: JOSE Tizol
+2. Protected routes
+3. Goal associated with each user
+4. Resources associated with each goal
+5. GitHub API for the commit
+6. chrome reminder for the goal
+7. MULTIPLE USER: FOLLOW AND COMMENT  USERS
+8. FORGOT PASSWORD
+9. ONCE LOGED IN, REDIRECT USER TO THEIR profiles
+10. Profile for each user
 
 
 
