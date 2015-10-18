@@ -27,3 +27,5 @@ iron:router
 tsega:bootstrap3-datetimepicker
 acemtp:meta-extractor
 # dhtmlx:scheduler
+saucecode:forgot-password
+infinitedg:gsap
