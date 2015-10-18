@@ -29,7 +29,7 @@ Features and People working on it
 5. GitHub API for the commit
 6. chrome reminder for the goal
 7. MULTIPLE USER: FOLLOW AND COMMENT  USERS
-8. FORGOT PASSWORD
+8. FORGOT PASSWORD: James Wright
 9. ONCE LOGED IN, REDIRECT USER TO THEIR profiles
 10. Profile for each user
 
