@@ -2,28 +2,28 @@
 // and to configure the SMTP: https://gist.github.com/LeCoupa/9879221
 
 Template.ForgotPassword.events({
-  'submit #forgotPasswordForm': function(e, t) {
+  'click form#forgot-form-submit button[type="submit"]' : function(e, t) {
     e.preventDefault();
+    var emailInput = $('#forgotPasswordEmail'); //emailInput[0].value
+    var forgotPasswordFormInput = emailInput[0].value;
+    var email = $.trim(forgotPasswordFormInput).toLowerCase();
+    //debugger
+    //if (isNotEmpty(email) && isEmail(email)) {
 
-    var forgotPasswordForm = $(e.currentTarget),
-        email = trimInput(forgotPasswordForm.find('#forgotPasswordEmail').val().toLowerCase());
+      // Accounts.forgotPassword({email: email}, function(err) {
+      //   if (err) {
+      //     if (err.message === 'User not found [403]') {
+      //       console.log('This email does not exist.');
+      //     } else {
+      //       console.log('We are sorry but something went wrong.');
+      //     }
+      //   } else {
+      //     console.log('Email Sent. Check your mailbox.');
+      //   }
+      // });
 
-    if (isNotEmpty(email) && isEmail(email)) {
-
-      Accounts.forgotPassword({email: email}, function(err) {
-        if (err) {
-          if (err.message === 'User not found [403]') {
-            console.log('This email does not exist.');
-          } else {
-            console.log('We are sorry but something went wrong.');
-          }
-        } else {
-          console.log('Email Sent. Check your mailbox.');
-        }
-      });
-
-    }
-    return false;
+    //}
+    // return false;
   },
 
   'click #forgot': function () {
@@ -37,6 +37,11 @@ Template.ForgotPassword.events({
 Template.ForgotPassword.helpers({
   showForgetFormField: function(){
     return Session.get('showForgetFormField');
+  },
+
+  validateEmail: function(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
   }
 });
 
@@ -53,6 +58,7 @@ Template.ResetPassword.helpers({
 
 Template.ResetPassword.events({
   'submit #resetPasswordForm': function(e, t) {
+    debugger;
     e.preventDefault();
     
     var resetPasswordForm = $(e.currentTarget),
