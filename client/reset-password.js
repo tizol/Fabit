@@ -10,13 +10,20 @@ Template.ForgotPassword.events({
     Meteor.call('validateEmail', email);
     
     if(!Session.get('isEmailValid')){
-      console.log("stop here");
       Session.set('invalidEmail', true);
       return;
-    } else {
-      console.log("proceed");
+    } else {  
       Session.set('invalidEmail', false);
+      /*
+      need to check to make sure there is an email
+      in the DB that matches this email address,
+      if so, send an email with an option to have 
+      the user reset their password.
+
+      */
+      debugger;
     }
+
     
     //if (isNotEmpty(email) && isEmail(email)) {
 

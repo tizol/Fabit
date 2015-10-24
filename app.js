@@ -1,5 +1,8 @@
 Goal = new Mongo.Collection('goals');
 
+//subcsribe to allUsers so that we can have access if/when the data is needed
+//Meteor.subscribe('allUsers');
+
 
 if (Meteor.isClient) {
 
@@ -46,3 +49,23 @@ if (Meteor.isClient) {
 // redirect http://stackoverflow.com/questions/22900405/how-to-redirect-after-user-has-just-logged-in-or-just-logged-out
 
 }
+
+if (Meteor.isServer) {
+  
+  // Meteor.publish("allUsers", function () {
+  //   return Meteor.users.find({});
+  // });
+  Meteor.publish("allUsers", function () {
+    return Meteor.users.find( {}, fields: { 'emails.address': 1 });
+    }
+}
+
+
+     
+
+
+
+
+
+
+
