@@ -7,7 +7,17 @@ Template.ForgotPassword.events({
     var emailInput = $('#forgotPasswordEmail'); //emailInput[0].value
     var forgotPasswordFormInput = emailInput[0].value;
     var email = $.trim(forgotPasswordFormInput).toLowerCase();
-    //debugger
+    Meteor.call('validateEmail', email);
+    
+    if(!Session.get('isEmailValid')){
+      console.log("stop here");
+      Session.set('invalidEmail', true);
+      return;
+    } else {
+      console.log("proceed");
+      Session.set('invalidEmail', false);
+    }
+    
     //if (isNotEmpty(email) && isEmail(email)) {
 
       // Accounts.forgotPassword({email: email}, function(err) {
@@ -34,15 +44,26 @@ Template.ForgotPassword.events({
     }
 });
 
+Meteor.methods({
+  validateEmail: function(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return Session.set('isEmailValid', re.test(email));
+  },
+  
+  isEmailValid: function(){
+    return Session.get('isEmailValid');
+  }
+});
+
 Template.ForgotPassword.helpers({
   showForgetFormField: function(){
     return Session.get('showForgetFormField');
   },
 
-  validateEmail: function(email) {
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    return re.test(email);
+  invalidEmail: function(){
+    return Session.get('invalidEmail');
   }
+
 });
 
 
@@ -58,7 +79,6 @@ Template.ResetPassword.helpers({
 
 Template.ResetPassword.events({
   'submit #resetPasswordForm': function(e, t) {
-    debugger;
     e.preventDefault();
     
     var resetPasswordForm = $(e.currentTarget),
