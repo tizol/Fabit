@@ -55,9 +55,9 @@ if (Meteor.isServer) {
   // Meteor.publish("allUsers", function () {
   //   return Meteor.users.find({});
   // });
-  Meteor.publish("allUsers", function () {
-    return Meteor.users.find( {}, fields: { 'emails.address': 1 });
-    }
+  // Meteor.publish("allUsers", function () {
+  //   return Meteor.users.find( {}, fields: { 'emails.address': 1 });
+  //   }
 }
 
 

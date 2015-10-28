@@ -1,5 +1,14 @@
 // Do not forget to add the email package: $ meteor add email
 // and to configure the SMTP: https://gist.github.com/LeCoupa/9879221
+var _template;
+
+Template.ForgotPassword.onCreated(function () {
+    
+    this.state = new ReactiveDict();
+    _template = this;
+
+});
+
 
 Template.ForgotPassword.events({
   'click form#forgot-form-submit button[type="submit"]' : function(e, t) {
@@ -7,13 +16,18 @@ Template.ForgotPassword.events({
     var emailInput = $('#forgotPasswordEmail'); //emailInput[0].value
     var forgotPasswordFormInput = emailInput[0].value;
     var email = $.trim(forgotPasswordFormInput).toLowerCase();
-    Meteor.call('validateEmail', email);
+    Meteor.call('validateEmail', email, function(error, result){
+      if(result){
+        _template.state.set('isEmailValid', res);
+      }
+    });
     
+    debugger;
     if(!Session.get('isEmailValid')){
-      Session.set('invalidEmail', true);
+      _template.state.set('invalidEmail', true);
       return;
     } else {  
-      Session.set('invalidEmail', false);
+      _template.state.set('invalidEmail', false);
       /*
       need to check to make sure there is an email
       in the DB that matches this email address,
@@ -46,7 +60,7 @@ Template.ForgotPassword.events({
   'click #forgot': function () {
       var passwordForm = document.getElementById("forgotPassForm");
       TweenLite.set(passwordForm, {opacity: 0});
-      Session.set('showForgetFormField', true);
+      _template.state.set('showForgetFormField', true);
       TweenLite.to(passwordForm, .5, {autoAlpha: 1});
     }
 });
@@ -54,37 +68,39 @@ Template.ForgotPassword.events({
 Meteor.methods({
   validateEmail: function(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    return Session.set('isEmailValid', re.test(email));
+    return re.test(email);
   },
   
   isEmailValid: function(){
-    return Session.get('isEmailValid');
+    return Template.instance().state.get('isEmailValid');
+
   }
 });
 
 Template.ForgotPassword.helpers({
   showForgetFormField: function(){
-    return Session.get('showForgetFormField');
+    return Template.instance().state.get('showForgetFormField');
   },
 
   invalidEmail: function(){
-    return Session.get('invalidEmail');
+    return Template.instance().state.get('invalidEmail');
   }
 
 });
 
 
+/*
 if (Accounts._resetPasswordToken) {
   Session.set('resetPassword', Accounts._resetPasswordToken);
-}
+}*/
 
-Template.ResetPassword.helpers({
+/*Template.ResetPassword.helpers({
  resetPassword: function(){
-  return Session.get('resetPassword');
+  return Template.instance().state.get('resetPassword');
  }
-});
+});*/
 
-Template.ResetPassword.events({
+/*Template.ResetPassword.events({
   'submit #resetPasswordForm': function(e, t) {
     e.preventDefault();
     
@@ -104,4 +120,4 @@ Template.ResetPassword.events({
     }
     return false;
   }
-});
+});*/
