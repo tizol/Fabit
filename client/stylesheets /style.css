@@ -175,3 +175,9 @@ input {
 .navbar {
     border-radius: 0px;
 }
+
+.error-text {
+  color: #FF0000;
+  padding-bottom: 10px;
+  float: left;
+}
