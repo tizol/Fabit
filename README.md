@@ -32,6 +32,7 @@ Features and People working on it
 8. FORGOT PASSWORD: James Wright
 9. ONCE LOGED IN, REDIRECT USER TO THEIR profiles
 10. Profile for each user
+11. TBD: Jason
 
 
 
